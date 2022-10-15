@@ -40,14 +40,16 @@ async def on_ready():
 @commands.is_owner()
 async def reload(ctx: commands.Context, cog:str):
     # Reloads the file, thus updating the Cog class.
-    await bot.reload_extension(f"commands.{cog}")
+    await bot.reload_extension(f"Commands.{cog}")
+    await bot.tree.sync()
     await ctx.send(f"🔁 {cog} reloaded!")
 
 @bot.command(name="load")
 @commands.is_owner()
 async def load(ctx: commands.Context, cog:str):
     # Reloads the file, thus updating the Cog class.
-    await bot.load_extension(f"commands.{cog}")
+    await bot.load_extension(f"Commands.{cog}")
+    await bot.tree.sync()
     await ctx.send(f"🆙 {cog} loaded!")
     
 bot.run(config.TOKEN)
