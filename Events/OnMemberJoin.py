@@ -25,11 +25,12 @@ class OnMemberJoin(commands.Cog):
             te = "th"
 
         embed = discord.Embed(
-            title=f"{member.name}, Welcome to {member.guild.name}",
+            title=f"Welcome to {member.guild.name}",
             description="Here you can test out Developer X's latest projects. Also you can join Beta Testers team for Cleaner Bot too, just wait for the Beta to be open.",
             color=0xffffff,
             timestamp=datetime.datetime.now()
         )
+        embed.set_author(name=member.name, icon_url=member.avatar.url)
         embed.set_footer(text=f"You are our {pos}{te} member.")
         embed.set_thumbnail(url=member.avatar.url)
         embed.set_image(url="https://i.imgur.com/XHoSQNX.png")
